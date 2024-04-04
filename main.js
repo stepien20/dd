@@ -72,13 +72,7 @@ arrayParties.forEach(element => {
 butSearch.addEventListener(`click`, evt=>{
     evt.preventDefault()
     const nameToSearch=document.querySelector(`#nameToSearch`).value
-    const SearchedTab=arrayParties.filter(object=>{
-        if(object.name==nameToSearch){
-            return object
-        }
-    })
-    
-    
+    const SearchedTab=arrayParties.filter(object=> object.name==nameToSearch? object : 0 )
     const tbody=document.querySelector(`#tbody2`)
 //czyszczenie tabeli
     tbody.innerHTML=''
