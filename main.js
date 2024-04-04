@@ -29,7 +29,7 @@ partyList.appendChild(ele)
 /////////////////////////
 butPrct.addEventListener('click',(evt)=>{
 evt.preventDefault()
-const tbody=document.querySelector(`tbody`)
+const tbody=document.querySelector(`#tbody`)
 //czyszczenie tabeli
     tbody.innerHTML=''
  ////////////
@@ -58,13 +58,17 @@ arrayParties.forEach(element => {
     
     });
     table.appendChild(tbody)
-    // czyszczenie tablicy
-    for (let i=0;i<=arrayParties.length+1;i++){
-        arrayParties.shift()
-    }
-    const partyList=document.querySelector(`#partyList`)
+    // // czyszczenie tablicy
+    // for (let i=0;i<=arrayParties.length+1;i++){
+    //     arrayParties.shift()
+    // }
+    // const partyList=document.querySelector(`#partyList`)
 })
 
+
+
+
+/////////////////////////////////////////////////
 butSearch.addEventListener(`click`, evt=>{
     evt.preventDefault()
     const nameToSearch=document.querySelector(`#nameToSearch`).value
@@ -73,5 +77,37 @@ butSearch.addEventListener(`click`, evt=>{
             return object
         }
     })
-    console.log(SearchedTab)
+    
+    
+    const tbody=document.querySelector(`#tbody2`)
+//czyszczenie tabeli
+    tbody.innerHTML=''
+ ////////////
+const tableDisplay=document.querySelector(`#tableDisplay2`)
+tableDisplay.classList.remove("d-none")
+const table=document.querySelector(`#table2`)
+let lp=0   
+arrayParties.forEach(element => {
+    if(SearchedTab.includes(element)){
+    const ele=document.createElement(`tr`)
+    lp++
+    if(((parseFloat(element.votes)/sum)*100).toFixed(2)>element.threshold){
+        ele.classList.add(`table-success`)
+    }
+    else{
+        ele.classList.add(`table-danger`)
+    }
+   ele.innerHTML=`
+          <td> ${lp}</td>
+          <td>${element.name}</td>
+          <td>${element.threshold}</td>
+          <td>${element.votes}</td>
+          <td>${((parseFloat(element.votes)/sum)*100).toFixed(2)}%</td>
+   `
+    tbody.appendChild(ele)
+}
+    });
+
+    table.appendChild(tbody)
+    const partyList=document.querySelector(`#partyList`)
 })
