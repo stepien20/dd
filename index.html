@@ -43,23 +43,49 @@
                 </div>
        </form>
        <form action="#" class="mb-3">
+         <h2 class="p-2 text-primary text-center">Wyszukaj komitet</h2>
         <div class="input-group">
-          <span class="input-group-text text-primary" id="nameToSearch">nazwa do wyszukania</span>
-          <input type="text" class="form-control" id="nameToSearch" aria-describedby="nameToSearch" value="partia1">
+          <span class="input-group-text text-primary" id="nameToSearchlabel">nazwa do wyszukania</span>
+          <input type="text" class="form-control" id="nameToSearch" aria-describedby="nameToSearchlabel" value="partia1">
         </div>
-            <button type="button" class="btn btn-secondary me-3" id="butSearch">Wyszukaj</button>
-            </div>
+        <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary me-3 mt-3" id="butSearch">Wyszukaj</button>
+          </div>  
+        </div>
    </form>    
-    </div>
-        <div > 
-            <h2 class="text-primary text-center ">Zarejestrowane komitety</h2>
+   <div > 
+      </div>
+
+      <div id="tableDisplay2" class="d-flex justify-content-center flex-column align-items-center d-none">
+      <h2 class="p-2 text-primary text-center">Wyszukane komitety</h2>
+      <table class="table table-bordered" id="table2">
         
-       <ol class="list-group list-group-numbered" id="partyList">
-          
-         
-        </ol>
-        </div>
-        
+              <thead class="table-secondary">
+            <tr >
+            <th> Lp</th>
+            <th>Nazwa ugrupowania</th>
+            <th>próg wyborczy</th>
+            <th>ilość głosów</th>
+            <th>wynik procentowy</th>
+              </tr>
+          </thead>
+          <tbody id="tbody2">
+
+          </tbody>
+        </table>
+        </div> 
+    
+    
+
+            <div > 
+                  <h2 class="text-primary text-center ">Zarejestrowane komitety</h2>
+              
+            <ol class="list-group list-group-numbered" id="partyList">
+                
+              
+              </ol>
+              </div>
+              
         <div id="tableDisplay" class="d-flex justify-content-center flex-column align-items-center d-none">
          <h2 class="p-2 text-primary text-center">Wyniki wyborów</h2>
         <table class="table table-bordered" id="table">
@@ -73,7 +99,7 @@
           <th>wynik procentowy</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="tbody">
 
         </tbody>
             </table>
